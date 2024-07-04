@@ -60,8 +60,9 @@ jobs:
           imageName: eq19/prime
           skipContainerUserIdUpdate: true
           cacheFrom: tcardonne/github-runner
-        if: ${{ contains(github.repository, 'github.io') }}
-     
+        #if: ${{ contains(github.repository, 'github.io') }}
+        if: ${{ contains(github.repository, github.actor) }}
+           
   github-pages:
     needs: determine-runner
   
