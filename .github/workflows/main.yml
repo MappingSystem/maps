@@ -54,18 +54,12 @@ jobs:
    
       - name: 🚀 Cloud Config
         uses: eq19/lexer@v1
-    
-      - name: 🚀 Initiate Lexer on Linux
-        #uses: eq19/lexer@v1
-        uses: devcontainers/ci@v0.3
+        id: set-runner
         with:
-          push: always
-          runCmd: ls -al /opt/runner/www
-          imageName: eq19/prime
-          skipContainerUserIdUpdate: true
-          cacheFrom: tcardonne/github-runner
-        if: ${{ contains(github.repository, 'github.io') }}
-           
+          repository: ${{ github.repository }}
+          token: ${{ secrets.ACCESS_TOKEN }}
+          credentials: ${{ secrets.GCP_CREDENTIALS }}
+    
   github-pages:
     needs: determine-runner
   
@@ -89,13 +83,8 @@ jobs:
           #repository: eq19/eq19.github.io
 
       - name: 🚀 Setup Parser
-        if: runner.os == 'Windows'
+        if: runner.os != 'Windows'
         uses: eq19/parser@v1
-        id: set-runner
-        with:
-          repository: ${{ github.repository }}
-          token: ${{ secrets.ACCESS_TOKEN }}
-          credentials: ${{ secrets.GCP_CREDENTIALS }}
 
       - name: 🪂 Evaluate Syntax
         if: runner.os == 'Windows'
@@ -105,13 +94,6 @@ jobs:
             [automount]
             root = /
 
-      - shell: wsl-bash {0}
-        run: |
-          id
-          pwd
-          ls -al /
-  
       - name: 🪂 Set Grammar Rules
         if: runner.os != 'Windows'
         uses: eq19/grammar@v3
- 
