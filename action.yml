@@ -27,12 +27,12 @@ runs:
         cat << EOL >> InfluxDB.yaml
         apiVersion: 1
         datasources:
-          name: $dbname
+          name: ${env:dbname}
           type: influxdb
           url: http://localhost:8086
-          user: $usrname
-          password: $pssword
-          database: $dbname
+          user: ${env:usrname}
+          password: ${env:pssword}
+          database: ${env:dbname}
           access: proxy
           editable: true
           isDefault: true
