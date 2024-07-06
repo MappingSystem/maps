@@ -19,20 +19,17 @@ runs:
   using: composite
   steps:
     - name: 🪂 Setup dotnet
-      env: |
-        dbname=db
-        usrname=user
-        pssword=pass
+      shell: bash
       run: |
         cat << EOL >> InfluxDB.yaml
         apiVersion: 1
         datasources:
-          name: ${env:dbname}
+          name: ${{ github.repository }}
           type: influxdb
           url: http://localhost:8086
-          user: ${env:usrname}
-          password: ${env:pssword}
-          database: ${env:dbname}
+          user: ${{ github.repository }}
+          password:  ${{ github.repository }}
+          database:  ${{ github.repository }}
           access: proxy
           editable: true
           isDefault: true
