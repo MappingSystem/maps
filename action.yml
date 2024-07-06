@@ -1,19 +1,45 @@
 name: Build devcontainer
 description: Build a devcontainer that is compliant with the spec
 
-branding:
-  icon: "activity"
-  color: "green"
-
 inputs:
-  cache_src:
-    description: Path for the docker cache source
+  provider:
+    description: 'The deploy provider'
+    required: true
+  owner:
+    description: 'The deploy owner'
     required: false
-    default: /tmp/.buildx-cache
-  cache_dest:
-    description: Path for the docker cache destination
+  token:
+    description: 'The deploy token'
     required: false
-    default: /tmp/.buildx-cache-new
+  credentials:
+    description: 'The gcloud credentials'
+    required: true
+  repository:
+    description: 'The deploy repository'
+    required: false
+  branch:
+    description: 'The deploy branch'
+    required: false
+  actor:
+    description: 'The github username creating the commit'
+    required: false
+  cname:
+    description: 'The cname to use for the site'
+    required: false
+  bundler_ver:
+    description: 'The Bundler version'
+    required: false
+  jekyll_baseurl:
+    description: 'The Jekyll website baseurl'
+    required: false
+  pre_build_container:
+    description: 'The pre-build docker container'
+    default: 'eq19/prime'
+    required: false
+
+branding:
+  icon: 'command'
+  color: 'red'
 
 runs:
   using: composite
