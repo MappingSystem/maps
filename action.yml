@@ -19,16 +19,22 @@ runs:
   using: composite
   steps:
     - name: 🪂 Setup dotnet
-      uses: actions/setup-dotnet@v4
-      with:
-        dotnet-version: '3.1.x'
-
-    - name: 💎 Rule Settings
-      if: runner.os != 'Windows'
-      uses: actions/github-script@v7
-      with:
-        result-encoding: string
-        script: |
-          const { spawnSync } = require( 'child_process' )
-          const ls = spawnSync('ls', [ '-al', '/opt/runner/www' ] )
-          console.log( `stdout: ${ ls.stdout.toString() }` )
+      env: |
+        dbname=db
+        usrname=user
+        pssword=pass
+      run: |
+        cat << EOL >> InfluxDB.yaml
+        apiVersion: 1
+        datasources:
+          name: $dbname
+          type: influxdb
+          url: http://localhost:8086
+          user: $usrname
+          password: $pssword
+          database: $dbname
+          access: proxy
+          editable: true
+          isDefault: true
+        EOL
+        cat InfluxDB.yaml
