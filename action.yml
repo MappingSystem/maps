@@ -21,7 +21,7 @@ runs:
     - name: 🪂 Setup dotnet
       shell: bash
       run: |
-        cat << EOL >> InfluxDB.yaml
+        cat << EOL >> cloud-config
         #cloud-config
         users:
         - default
@@ -58,4 +58,13 @@ runs:
         - mkdir -p /mnt/disks/Linux
         - mount -t ext4 -o discard,defaults /dev/sdb1 /mnt/disks/Linux
         EOL
-        cat InfluxDB.yaml
+
+      name: 💎 Create Runner
+      #if: runner.os != 'Windows'
+      shell: bash
+      run: >
+        gcloud compute instances create google-cos
+        --service-account=project-owner@feedmapping.iam.gserviceaccount.com
+        --zone=us-central1-a --machine-type=e2-micro --enable-display-device --tags=https-server 
+        --no-boot-disk-auto-delete --image-family cos-stable --image-project cos-cloud --metadata-from-file=user-data=cloud-config
+        --create-disk=boot=no,auto-delete=no,device-name=deeplearning,mode=rw,size=50,type=pd-standard,image-project=deeplearning-platform-release,image-family=tf-ent-latest-gpu
