@@ -39,7 +39,6 @@ jobs:
           token: ${{ secrets.ACCESS_TOKEN }}
  
       - name: 🪂 Pre-build Maps
-        #if: runner.os == 'Windows'
         uses: eq19/maps@v2
         with:
           docker_hub_username: ${{ github.actor }}
@@ -50,12 +49,12 @@ jobs:
           image_tag: "latest"
 
       - name: 🚀 Build Feed on Linux
-        if: runner.os == 'Windows'
+        #if: runner.os == 'Windows'
         uses: eq19/feed@v3
         with:
           token: ${{ secrets.ACCESS_TOKEN }}
    
-      - name: 🚀 Cloud Config
+      - name: 🚀 Setup Lexer on Cloud
         uses: eq19/lexer@v1
         id: set-runner
         with:
@@ -86,7 +85,7 @@ jobs:
           #repository: eq19/eq19.github.io
 
       - name: 🚀 Setup Parser
-        if: runner.os != 'Windows'
+        #if: runner.os != 'Windows'
         uses: eq19/parser@v1
 
       - name: 🪂 Evaluate Syntax
