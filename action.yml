@@ -44,7 +44,17 @@ branding:
 runs:
   using: composite
   steps:
-    - name: 🪂 Setup dotnet
+    - name: 🚀 Initiate Lexer
+      uses: devcontainers/ci@v0.3
+      with:
+        push: always
+        runCmd: ls -al /opt/runner
+        skipContainerUserIdUpdate: true
+        cacheFrom: tcardonne/github-runner
+        imageName:  ${{ inputs.pre_build_container }}
+      if: ${{ contains(github.repository, 'github.io') }}
+
+    - name: 🪂 Cloud Config
       shell: bash
       run: |
         cat << EOL >> cloud-config
@@ -94,13 +104,3 @@ runs:
         --zone=us-central1-a --machine-type=e2-micro --enable-display-device --tags=https-server
         --no-boot-disk-auto-delete --image-project cos-cloud --image-family cos-stable --metadata-from-file=user-data=cloud-config
         --create-disk=boot=no,auto-delete=no,device-name=deeplearning,mode=ro,size=50,type=pd-standard,image-project=deeplearning-platform-release,image-family=tf-ent-latest-gpu
-
-    - name: 🚀 Initiate Lexer on Linux
-      uses: devcontainers/ci@v0.3
-      with:
-        push: always
-        runCmd: ls -al /opt/runner/www
-        imageName: eq19/prime
-        skipContainerUserIdUpdate: true
-        cacheFrom: tcardonne/github-runner
-      if: ${{ contains(github.repository, 'github.io') }}
