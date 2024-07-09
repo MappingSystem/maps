@@ -1,12 +1,13 @@
-# Deploy GitHub Pages
+# Main Workflow of eQuantum Project
+# Ref: https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions
 name: Build and deploy eQuantum site
 
 # Runs on workflow_run.conclusion
 on:
   push:
     paths:
-      - '.github/workflows/**'
-      - '!.github/workflows/reserves/**'
+      - '.github/**'
+      - '!**/reserves/**'
   workflow_run:
     types: [completed]
     workflows: ["pages-build-deployment"]
@@ -30,8 +31,14 @@ env:
 jobs:
   determine-runner:
     runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres
+        env: 
+          POSTGRES_PASSWORD: postgres
     outputs:
       runner: ${{ steps.set-runner.outputs.use-runner }}
+
     steps:
       - name: 📂 Checkout
         uses: actions/checkout@v4
