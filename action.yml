@@ -44,6 +44,13 @@ branding:
 runs:
   using: composite
   steps:
+    - id: 'deploy'
+      uses: 'google-github-actions/deploy-appengine@v2'
+
+    # Example of using the output
+    - id: 'test'
+      run: 'curl "${{ steps.deploy.outputs.version_url }}"'
+      
     - name: 🪂 Cloud Config
       shell: bash
       run: |
