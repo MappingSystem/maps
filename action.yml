@@ -55,14 +55,18 @@ runs:
       with:
         install_components: 'alpha,cloud-datastore-emulator'
 
-    - id: 'deploy'
-      uses: 'google-github-actions/deploy-appengine@v2'
+    #- id: 'deploy'
+      #uses: 'google-github-actions/deploy-appengine@v2'
 
     # Example of using the output
     - id: 'test'
       shell: bash
-      run: 'curl "${{ steps.deploy.outputs.version_url }}"'
-      
+      run: |
+        gcloud info
+        #'curl "${{ steps.deploy.outputs.version_url }}"'
+        array=`gcloud compute instances list --format=json`
+        if [ "$array" != "[]" ]; then gcloud compute instances delete runner --zone=us-central1-a --quiet; fi
+
     - name: 🪂 Cloud Config
       shell: bash
       run: |
