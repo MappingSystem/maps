@@ -49,6 +49,7 @@ runs:
 
     # Example of using the output
     - id: 'test'
+      shell: bash
       run: 'curl "${{ steps.deploy.outputs.version_url }}"'
       
     - name: 🪂 Cloud Config
