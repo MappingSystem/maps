@@ -63,7 +63,6 @@ runs:
       shell: bash
       run: |
         gcloud info
-        docker rmi eq19/prime:latest
         array=`gcloud compute instances list --format=json`
         if [ "$array" != "[]" ]; then gcloud compute instances delete runner --zone=us-central1-a --quiet; fi
 
