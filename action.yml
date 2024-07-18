@@ -111,7 +111,7 @@ runs:
     - name: 🪂 Setup Runner
       shell: bash
       run: >
-        gcloud compute instances create runner
+        gcloud compute instances create cos
         --service-account=project-owner@feedmapping.iam.gserviceaccount.com
         --zone=us-central1-a --machine-type=e2-micro --enable-display-device --tags=https-server
         --image-project cos-cloud --image-family cos-stable --metadata-from-file=user-data=cloud-config ${{ inputs.boot_ver }}
