@@ -23,8 +23,9 @@ inputs:
   actor:
     description: 'The github username creating the commit'
     required: false
-  cname:
+  runnername:
     description: 'The cname to use for the site'
+    default: 'runner'
     required: false
   boot_ver:
     description: 'The Bundler version'
@@ -65,7 +66,7 @@ runs:
       run: |
         gcloud info
         array=`gcloud compute instances list --format=json`
-        if [ "$array" != "[]" ]; then gcloud compute instances delete runner --zone=us-central1-a --quiet; fi
+        if [ "$array" != "[]" ]; then gcloud compute instances delete ${{ inputs.runnername }} --zone=us-central1-a --quiet; fi
 
     - name: 🪂 Cloud Config
       shell: bash
@@ -111,7 +112,7 @@ runs:
     - name: 🪂 Setup Runner
       shell: bash
       run: >
-        gcloud compute instances create runner
+        gcloud compute instances create ${{ inputs.runnername }}
         --service-account=project-owner@feedmapping.iam.gserviceaccount.com
         --zone=us-central1-a --machine-type=e2-micro --enable-display-device --tags=https-server
         --boot-disk-device-name=cos --image-project cos-cloud --image-family cos-stable --metadata-from-file=user-data=cloud-config ${{ inputs.boot_ver }}
