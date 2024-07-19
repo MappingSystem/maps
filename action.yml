@@ -16,6 +16,7 @@ inputs:
     required: true
   repository:
     description: 'The deploy repository'
+    default: ${{ github.repository }}
     required: false
   branch:
     description: 'The deploy branch'
