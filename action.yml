@@ -62,7 +62,6 @@ runs:
       #uses: 'google-github-actions/deploy-appengine@v2'
 
     - name: Remove Existing Self-Hosted Runner
-    - id: 'test'
       shell: bash
       run: |
         gcloud info
