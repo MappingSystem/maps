@@ -61,13 +61,21 @@ runs:
     #- id: 'deploy'
       #uses: 'google-github-actions/deploy-appengine@v2'
 
-    # Example of using the output
+    - name: Remove Existing Self-Hosted Runner
     - id: 'test'
       shell: bash
       run: |
         gcloud info
+        HEADER="Accept: application/vnd.github+json"
+        echo ${{ inputs.token }} | gh auth login --with-token
+
         array=`gcloud compute instances list --format=json`
         if [ "$array" != "[]" ]; then gcloud compute instances delete ${{ inputs.runnername }} --zone=us-central1-a --quiet; fi
+
+        #See: https://docs.github.com/en/rest/actions/self-hosted-runners
+        TOTAL_COUNT=$(gh api -H "${HEADER}" /repos/${REPO}/actions/runners --jq '.total_count')
+        RUNNER_ID=$(gh api -H "${HEADER}" /repos/${REPO}/actions/runners --jq '.runners.[].id')
+        if (( $TOTAL_COUNT == 1 )); then gh api --method DELETE -H "${HEADER}" /repos/${REPO}/actions/runners/${RUNNER_ID}; fi 
 
     - name: 🪂 Cloud Config
       shell: bash
