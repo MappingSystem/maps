@@ -61,6 +61,7 @@ runs:
     #- id: 'deploy'
       #uses: 'google-github-actions/deploy-appengine@v2'
 
+    # https://github.com/thesofproject/sof/blob/a544eb30aec1aaba2d67fde1b12c2a96cdf16f45/zephyr/docker-run.sh#L68
     - name: Remove Existing Self-Hosted Runner
       shell: bash
       run: |
