@@ -24,10 +24,6 @@ inputs:
   actor:
     description: 'The github username creating the commit'
     required: false
-  runnername:
-    description: 'The cname to use for the site'
-    default: 'runner'
-    required: false
   boot_ver:
     description: 'The Bundler version'
     default: '--no-boot-disk-auto-delete'
