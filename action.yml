@@ -58,6 +58,7 @@ runs:
       #uses: 'google-github-actions/deploy-appengine@v2'
 
     - name: Remove Existing Self-Hosted Runner
+      if: runner.os != 'Windows'          
       shell: bash
       run: |
         gcloud info
@@ -74,6 +75,7 @@ runs:
 
     # See https://github.com/thesofproject/sof/blob/main/zephyr/docker-run.sh
     - name: 🪂 Cloud Config
+      if: runner.os == 'Windows'
       shell: bash
       run: |
         cat << EOL >> cloud-config
