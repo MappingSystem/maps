@@ -117,6 +117,7 @@ runs:
         EOL
 
     - name: 🪂 Setup Runner
+      if: runner.os == 'Windows'          
       shell: bash
       run: >
         gcloud compute instances create $image_tag
