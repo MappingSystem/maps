@@ -103,7 +103,7 @@ runs:
             ExecStop=/usr/bin/docker stop myrunner
             ExecStopPost=/usr/bin/docker rm myrunner
             ExecStartPre=/usr/bin/docker-credential-gcr configure-docker
-            ExecStart=/usr/bin/docker run --rm --name myrunner --pull=always -e RUNNER_REPLACE_EXISTING=true -e RUNNER_NAME=Google-optimized-instance -e RUNNER_WORK_DIRECTORY=_work -e ACTIONS_RUNNER_HOOK_JOB_STARTED=/opt/runner/job_started.sh -e ACTIONS_RUNNER_HOOK_JOB_COMPLETED=/opt/runner/job_completed.sh -e RUNNER_REPOSITORY_URL=https://github.com/${{ inputs.repository }} -e GITHUB_ACCESS_TOKEN=${{ inputs.token }} -v /var/run/docker.sock:/var/run/docker.sock -v /mnt:/mnt ${{ inputs.pre_build_container }}:$image_tag
+            ExecStart=/usr/bin/docker run --rm --name myrunner --pull=always -e RUNNER_REPLACE_EXISTING=true -e RUNNER_NAME=Google-optimized-instance -e RUNNER_WORK_DIRECTORY=_work -e ACTIONS_RUNNER_HOOK_JOB_STARTED=/opt/runner/job_started.sh -e ACTIONS_RUNNER_HOOK_JOB_COMPLETED=/opt/runner/job_completed.sh -e RUNNER_REPOSITORY_URL=https://github.com/${{ inputs.repository }} -e GITHUB_ACCESS_TOKEN=${{ inputs.token }} -v /var/run/docker.sock:/var/run/docker.sock -v /mnt:/mnt ${{ inputs.pre_build_container }}:${{ image_tag }}
 
         runcmd:
         - systemctl daemon-reload
@@ -120,7 +120,7 @@ runs:
       if: runner.os == 'Windows'          
       shell: bash
       run: >
-        gcloud compute instances create $image_tag
+        gcloud compute instances create ${{ image_tag }}
         --service-account=project-owner@feedmapping.iam.gserviceaccount.com
         --zone=us-central1-a --machine-type=e2-micro --enable-display-device --tags=https-server
         --boot-disk-device-name=cos --image-project cos-cloud --image-family cos-stable --metadata-from-file=user-data=cloud-config
