@@ -123,8 +123,8 @@ runs:
 
     - uses: ikalnytskyi/action-setup-postgres@v6 
       with:
-        username: ci
-        password: sw0rdfish
+        username: yoda
+        password: GrandMaster
         database: test
         port: 34837
       id: postgres
@@ -135,7 +135,7 @@ runs:
       env:
         CONNECTION_URI: ${{ steps.postgres.outputs.connection-uri }}
         SERVICE_NAME: ${{ steps.postgres.outputs.service-name }}
-        EXPECTED_CONNECTION_URI: postgresql://yoda:GrandMaster@localhost:34837/jedi_order
+        EXPECTED_CONNECTION_URI: postgresql://yoda:GrandMaster@localhost:34837/test
         EXPECTED_SERVICE_NAME: yoda
  
     - run: pytest -vv tests/
