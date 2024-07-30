@@ -138,13 +138,3 @@ runs:
         EXPECTED_CONNECTION_URI: postgresql://yoda:GrandMaster@localhost:34837/test
         EXPECTED_SERVICE_NAME: yoda
       shell: bash
-
-    - run: pytest -vv tests/
-      shell: bash
-      env:
-        CONNECTION_STR: ${{ steps.postgres.outputs.connection-uri }}
-
-    - run: pytest -vv tests/
-      shell: bash
-      env:
-        CONNECTION_STR: service=${{ steps.postgres.outputs.service-name }}
