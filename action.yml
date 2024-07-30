@@ -130,9 +130,11 @@ runs:
       id: postgres
 
     - run: pytest -vv tests/
+      shell: bash
       env:
         CONNECTION_STR: ${{ steps.postgres.outputs.connection-uri }}
 
     - run: pytest -vv tests/
+      shell: bash
       env:
         CONNECTION_STR: service=${{ steps.postgres.outputs.service-name }}
