@@ -1,0 +1,16 @@
+CLASS net/minecraft/client/renderer/PostPass
+	METHOD <init> (Lnet/minecraft/server/packs/resources/ResourceProvider;Ljava/lang/String;Lcom/mojang/blaze3d/pipeline/RenderTarget;Lcom/mojang/blaze3d/pipeline/RenderTarget;Z)V
+		ARG 1 resourceProvider
+		ARG 2 name
+		ARG 3 inTarget
+		ARG 4 outTarget
+		ARG 5 useLinearFilter
+	METHOD addAuxAsset (Ljava/lang/String;Ljava/util/function/IntSupplier;II)V
+		ARG 1 auxName
+		ARG 2 auxFramebuffer
+		ARG 3 width
+		ARG 4 height
+	METHOD process (F)V
+		ARG 1 partialTicks
+	METHOD setOrthoMatrix (Lorg/joml/Matrix4f;)V
+		ARG 1 shaderOrthoMatrix

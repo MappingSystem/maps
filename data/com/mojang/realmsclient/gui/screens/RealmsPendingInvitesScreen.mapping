@@ -1,0 +1,24 @@
+CLASS com/mojang/realmsclient/gui/screens/RealmsPendingInvitesScreen
+	METHOD <init> (Lnet/minecraft/client/gui/screens/Screen;Lnet/minecraft/network/chat/Component;)V
+		ARG 1 lastScreen
+		ARG 2 title
+	METHOD handleInvitation (IZ)V
+		ARG 1 index
+		ARG 2 shouldAccept
+	METHOD shouldAcceptAndRejectButtonBeVisible (I)Z
+		ARG 1 selectedInvite
+	CLASS Entry
+		METHOD <init> (Lcom/mojang/realmsclient/gui/screens/RealmsPendingInvitesScreen;Lcom/mojang/realmsclient/dto/PendingInvite;)V
+			ARG 2 pendingInvite
+		METHOD renderPendingInvitationItem (Lnet/minecraft/client/gui/GuiGraphics;Lcom/mojang/realmsclient/dto/PendingInvite;IIII)V
+			ARG 1 guiGraphics
+			ARG 2 pendingInvite
+			ARG 3 x
+			ARG 4 y
+			ARG 5 mouseX
+			ARG 6 mouseY
+	CLASS PendingInvitationSelectionList
+		METHOD removeAtIndex (I)V
+			ARG 1 index
+		METHOD selectInviteListItem (I)V
+			ARG 1 index

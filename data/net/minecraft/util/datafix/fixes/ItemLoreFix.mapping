@@ -1,0 +1,6 @@
+CLASS net/minecraft/util/datafix/fixes/ItemLoreFix
+	METHOD <init> (Lcom/mojang/datafixers/schemas/Schema;Z)V
+		ARG 1 outputSchema
+		ARG 2 changesType
+	METHOD fixLoreList (Ljava/util/stream/Stream;)Ljava/util/stream/Stream;
+		ARG 0 loreListTags

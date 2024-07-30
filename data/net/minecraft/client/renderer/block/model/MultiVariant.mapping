@@ -1,0 +1,10 @@
+CLASS net/minecraft/client/renderer/block/model/MultiVariant
+	METHOD <init> (Ljava/util/List;)V
+		ARG 1 variants
+	METHOD equals (Ljava/lang/Object;)Z
+		ARG 1 other
+	CLASS Deserializer
+		METHOD deserialize (Lcom/google/gson/JsonElement;Ljava/lang/reflect/Type;Lcom/google/gson/JsonDeserializationContext;)Lnet/minecraft/client/renderer/block/model/MultiVariant;
+			ARG 1 json
+			ARG 2 type
+			ARG 3 context

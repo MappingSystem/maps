@@ -1,0 +1,7 @@
+CLASS net/minecraft/client/gui/spectator/SpectatorMenuItem
+	METHOD renderIcon (Lnet/minecraft/client/gui/GuiGraphics;FI)V
+		ARG 1 guiGraphics
+		ARG 2 shadeColor
+		ARG 3 alpha
+	METHOD selectItem (Lnet/minecraft/client/gui/spectator/SpectatorMenu;)V
+		ARG 1 menu

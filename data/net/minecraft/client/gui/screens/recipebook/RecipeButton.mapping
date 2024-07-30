@@ -1,0 +1,6 @@
+CLASS net/minecraft/client/gui/screens/recipebook/RecipeButton
+	METHOD init (Lnet/minecraft/client/gui/screens/recipebook/RecipeCollection;Lnet/minecraft/client/gui/screens/recipebook/RecipeBookPage;)V
+		ARG 1 collection
+		ARG 2 recipeBookPage
+	METHOD isValidClickButton (I)Z
+		ARG 1 button

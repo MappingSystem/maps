@@ -1,0 +1,3 @@
+CLASS net/minecraft/client/model/ColorableHierarchicalModel
+	METHOD setColor (I)V
+		ARG 1 color

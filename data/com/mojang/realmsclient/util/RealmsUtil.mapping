@@ -1,0 +1,11 @@
+CLASS com/mojang/realmsclient/util/RealmsUtil
+	METHOD convertToAgePresentation (J)Lnet/minecraft/network/chat/Component;
+		ARG 0 millis
+	METHOD convertToAgePresentationFromInstant (Ljava/util/Date;)Lnet/minecraft/network/chat/Component;
+		ARG 0 date
+	METHOD renderPlayerFace (Lnet/minecraft/client/gui/GuiGraphics;IIILjava/util/UUID;)V
+		ARG 0 guiGraphics
+		ARG 1 x
+		ARG 2 y
+		ARG 3 size
+		ARG 4 playerUuid

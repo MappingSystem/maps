@@ -1,100 +1,41 @@
-<!---
- Licensed to the Apache Software Foundation (ASF) under one or more
- contributor license agreements.  See the NOTICE file distributed with
- this work for additional information regarding copyright ownership.
- The ASF licenses this file to You under the Apache License, Version 2.0
- (the "License"); you may not use this file except in compliance with
- the License.  You may obtain a copy of the License at
+Parchment Mappings
+==================
+[![Discord server badge](https://img.shields.io/discord/851855518398152725?color=5865F2&label=discord&logo=discord&logoColor=white)](https://discord.parchmentmc.org/)
+[![Minecraft version badge](https://img.shields.io/badge/mc%20version-1.21-3b8526)](#)
+&nbsp;
+[![Latest release version badge](https://img.shields.io/maven-metadata/v?color=forestgreen&label=release&metadataUrl=https%3A%2F%2Fldtteam.jfrog.io%2Fartifactory%2Fparchmentmc-internal%2Forg%2Fparchmentmc%2Fdata%2Fparchment-1.21%2Fmaven-metadata.xml)](#)
+[![CI release build status](https://buildsystem.ldtteam.com/app/rest/builds/buildType:(id:ParchmentMC_Mappings_Release),branch:1.21.x/statusIcon)](#)
 
-      http://www.apache.org/licenses/LICENSE-2.0
+[![Latest nightly version badge](https://img.shields.io/maven-metadata/v?color=orange&label=nightly&metadataUrl=https%3A%2F%2Fldtteam.jfrog.io%2Fartifactory%2Fparchmentmc-snapshots%2Forg%2Fparchmentmc%2Fdata%2Fparchment-1.21%2Fmaven-metadata.xml)](#)
+[![CI nightly build status](https://buildsystem.ldtteam.com/app/rest/builds/buildType:(id:ParchmentMC_Mappings_Nightly),branch:1.21.x/statusIcon)](#)
+&nbsp;
+[![Latest bleeding version badge](https://img.shields.io/maven-metadata/v?color=red&label=bleeding&metadataUrl=https%3A%2F%2Fldtteam.jfrog.io%2Fartifactory%2Fparchmentmc-bleeding%2Forg%2Fparchmentmc%2Fdata%2Fparchment-1.21%2Fmaven-metadata.xml)](#)
+[![CI bleeding build status](https://buildsystem.ldtteam.com/app/rest/builds/buildType:(id:ParchmentMC_Mappings_Bleeding),branch:1.21.x/statusIcon)](#)
 
- Unless required by applicable law or agreed to in writing, software
- distributed under the License is distributed on an "AS IS" BASIS,
- WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- See the License for the specific language governing permissions and
- limitations under the License.
--->
-Contributing to [Apache Maven Javadoc Plugin](https://maven.apache.org/plugins/maven-javadoc-plugin/)
-======================
+Welcome to the Parchment mappings repository!
 
-[![ASF Jira](https://img.shields.io/endpoint?url=https%3A%2F%2Fmaven.apache.org%2Fbadges%2Fasf_jira-MJAVADOC.json)][jira]
-[![Apache License, Version 2.0, January 2004](https://img.shields.io/github/license/apache/maven.svg?label=License)][license]
-[![Maven Central](https://img.shields.io/maven-central/v/org.apache.maven.plugins/maven-javadoc-plugin.svg?label=Maven%20Central)](https://search.maven.org/artifact/org.apache.maven.plugins/maven-javadoc-plugin)
-[![Reproducible Builds](https://img.shields.io/badge/Reproducible_Builds-ok-green?labelColor=blue)](https://github.com/jvm-repo-rebuild/reproducible-central/blob/master/content/org/apache/maven/plugins/maven-javadoc-plugin/README.md)
-[![Jenkins Status](https://img.shields.io/jenkins/s/https/ci-maven.apache.org/job/Maven/job/maven-box/job/maven-javadoc-plugin/job/master.svg?)][build]
-[![Jenkins tests](https://img.shields.io/jenkins/t/https/ci-maven.apache.org/job/Maven/job/maven-box/job/maven-javadoc-plugin/job/master.svg?)][test-results]
+Parchment is an open community-sourced modloader-neutral set of mappings of parameter names and javadocs, to augment
+the official names released by Mojang. This repository contains the files which make up the Parchment mapping set, with
+the build tool to manage the mappings and generate exports for publishing.
 
+### Want to use Parchment in your workspace? See the [Getting Started](https://parchmentmc.org/docs/getting-started) page at the website.
 
-You have found a bug or you have an idea for a cool new feature? Contributing
-code is a great way to give something back to the open source community. Before
-you dig right into the code, there are a few guidelines that we need
-contributors to follow so that we can have a chance of keeping on top of
-things.
+## Contributing
+See the [`docs/CONTRIBUTING.md` file](docs/CONTRIBUTING.md) for information on contributing. Also look at the 
+[repository wiki](https://github.com/ParchmentMC/Parchment/wiki) for more information, such as links to the mapping 
+standards and PR review process documents.
 
-Getting Started
----------------
+## Tools and Libraries
+Our mappings system makes use of the following open-source tools and libraries:
+- [Compass](https://github.com/ParchmentMC/Compass), the Gradle plugin powering the validation and input systems.
+- [Feather](https://github.com/ParchmentMC/Feather), a data object and parsing library used by ParchmentMC projects.
+- [Enigma](https://github.com/FabricMC/enigma), a tool for deobfuscation and mapping of Java bytecode.
+- [Moshi](https://github.com/square/moshi), a modern JSON parsing library.
 
-+ Make sure you have a [JIRA account](https://issues.apache.org/jira/).
-+ Make sure you have a [GitHub account](https://github.com/signup/free).
-+ If you're planning to implement a new feature, it makes sense to discuss your changes 
-  on the [dev list][ml-list] first. 
-  This way you can make sure you're not wasting your time on something that isn't 
-  considered to be in Apache Maven's scope.
-+ Submit a ticket for your issue, assuming one does not already exist.
-  + Clearly describe the issue, including steps to reproduce when it is a bug.
-  + Make sure you fill in the earliest version that you know has the issue.
-+ Fork the repository on GitHub.
+## Support
+Want to ask a question? Get help on how to use these mappings? Or tips on contributing to the mappings? Head over to
+our [public Discord server](https://discord.parchmentmc.org/)!
 
-Making and Submitting Changes
---------------
-
-We accept Pull Requests via GitHub. The [developer mailing list][ml-list] is the
-main channel of communication for contributors.  
-There are some guidelines which will make applying PRs easier for us:
-+ Create a topic branch from where you want to base your work (this is usually the master branch).
-  Push your changes to a topic branch in your fork of the repository.
-+ Make commits of logical units.
-+ Respect the original code style: by using the same [codestyle][code-style],
-  patches should only highlight the actual difference, not being disturbed by any formatting issues:
-  + Only use spaces for indentation.
-  + Create minimal diffs - disable on save actions like reformat source code or organize imports. 
-    If you feel the source code should be reformatted, create a separate PR for this change.
-  + Check for unnecessary whitespace with `git diff --check` before committing.
-+ Make sure your commit messages are in the proper format. Your commit message should contain the key of the JIRA issue.
-```
-[MJAVADOC-XXX] - Subject of the JIRA Ticket
- Optional supplemental description.
-```
-+ Make sure you have added the necessary tests (JUnit/IT) for your changes.
-+ Run all the tests with `mvn -Prun-its verify` to assure nothing else was accidentally broken.
-+ Submit a pull request to the repository in the Apache organization.
-+ Update your JIRA ticket and include a link to the pull request in the ticket.
-
-If you plan to contribute on a regular basis, please consider filing a [contributor license agreement][cla].
-
-Making Trivial Changes
-----------------------
-
-For changes of a trivial nature to comments and documentation, it is not always
-necessary to create a new ticket in JIRA.  In this case, it is appropriate to
-start the first line of a commit with '(doc)' instead of a ticket number.
-
-Additional Resources
---------------------
-
-+ [Contributing patches](https://maven.apache.org/guides/development/guide-maven-development.html#Creating_and_submitting_a_patch)
-+ [Apache Maven Javadoc JIRA project page][jira]
-+ [Contributor License Agreement][cla]
-+ [General GitHub documentation](https://help.github.com/)
-+ [GitHub pull request documentation](https://help.github.com/send-pull-requests/)
-+ [Apache Maven Twitter Account](https://twitter.com/ASFMavenProject)
-+ `#Maven channel` on [ASFs Slack](https://the-asf.slack.com)
-
-[jira]: https://issues.apache.org/jira/projects/MJAVADOC/
-[license]: https://www.apache.org/licenses/LICENSE-2.0
-[ml-list]: https://maven.apache.org/mailing-lists.html
-[code-style]: https://maven.apache.org/developers/conventions/code.html
-[cla]: https://www.apache.org/licenses/#clas
-[maven-wiki]: https://cwiki.apache.org/confluence/display/MAVEN/Index
-[test-results]: https://ci-maven.apache.org/job/Maven/job/maven-box/job/maven-javadoc-plugin/job/master/lastCompletedBuild/testReport/
-[build]: https://ci-maven.apache.org/job/Maven/job/maven-box/job/maven-javadoc-plugin/job/master/
+## Licensing
+Parchment mappings are released under the terms of the CC0 1.0 Universal (CC0 1.0), see the [`LICENSE.txt`](LICENSE.txt) 
+for the full legal text.

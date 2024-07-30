@@ -1,0 +1,34 @@
+CLASS net/minecraft/data/recipes/ShapelessRecipeBuilder
+	METHOD <init> (Lnet/minecraft/data/recipes/RecipeCategory;Lnet/minecraft/world/level/ItemLike;I)V
+		ARG 1 category
+		ARG 2 result
+		ARG 3 count
+	METHOD ensureValid (Lnet/minecraft/resources/ResourceLocation;)V
+		COMMENT Makes sure that this recipe is valid and obtainable.
+		ARG 1 id
+	METHOD requires (Lnet/minecraft/tags/TagKey;)Lnet/minecraft/data/recipes/ShapelessRecipeBuilder;
+		COMMENT Adds an ingredient that can be any item in the given tag.
+		ARG 1 tag
+	METHOD requires (Lnet/minecraft/world/item/crafting/Ingredient;)Lnet/minecraft/data/recipes/ShapelessRecipeBuilder;
+		COMMENT Adds an ingredient.
+		ARG 1 ingredient
+	METHOD requires (Lnet/minecraft/world/item/crafting/Ingredient;I)Lnet/minecraft/data/recipes/ShapelessRecipeBuilder;
+		COMMENT Adds an ingredient multiple times.
+		ARG 1 ingredient
+		ARG 2 quantity
+	METHOD requires (Lnet/minecraft/world/level/ItemLike;)Lnet/minecraft/data/recipes/ShapelessRecipeBuilder;
+		COMMENT Adds an ingredient of the given item.
+		ARG 1 item
+	METHOD requires (Lnet/minecraft/world/level/ItemLike;I)Lnet/minecraft/data/recipes/ShapelessRecipeBuilder;
+		COMMENT Adds the given ingredient multiple times.
+		ARG 1 item
+		ARG 2 quantity
+	METHOD shapeless (Lnet/minecraft/data/recipes/RecipeCategory;Lnet/minecraft/world/level/ItemLike;)Lnet/minecraft/data/recipes/ShapelessRecipeBuilder;
+		COMMENT Creates a new builder for a shapeless recipe.
+		ARG 0 category
+		ARG 1 result
+	METHOD shapeless (Lnet/minecraft/data/recipes/RecipeCategory;Lnet/minecraft/world/level/ItemLike;I)Lnet/minecraft/data/recipes/ShapelessRecipeBuilder;
+		COMMENT Creates a new builder for a shapeless recipe.
+		ARG 0 category
+		ARG 1 result
+		ARG 2 count

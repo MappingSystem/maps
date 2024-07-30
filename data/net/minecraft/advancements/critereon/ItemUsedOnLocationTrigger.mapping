@@ -1,0 +1,26 @@
+CLASS net/minecraft/advancements/critereon/ItemUsedOnLocationTrigger
+	METHOD lambda$trigger$0 (Lnet/minecraft/world/level/storage/loot/LootContext;Lnet/minecraft/advancements/critereon/ItemUsedOnLocationTrigger$TriggerInstance;)Z
+		ARG 1 trigger
+	METHOD trigger (Lnet/minecraft/server/level/ServerPlayer;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/item/ItemStack;)V
+		ARG 1 player
+		ARG 2 pos
+		ARG 3 stack
+	CLASS TriggerInstance
+		METHOD <init> (Ljava/util/Optional;Ljava/util/Optional;)V
+			ARG 1 player
+			ARG 2 location
+		METHOD allayDropItemOnBlock (Lnet/minecraft/advancements/critereon/LocationPredicate$Builder;Lnet/minecraft/advancements/critereon/ItemPredicate$Builder;)Lnet/minecraft/advancements/Criterion;
+			ARG 0 location
+			ARG 1 tool
+		METHOD itemUsedOnBlock (Lnet/minecraft/advancements/critereon/LocationPredicate$Builder;Lnet/minecraft/advancements/critereon/ItemPredicate$Builder;)Lnet/minecraft/advancements/Criterion;
+			ARG 0 location
+			ARG 1 tool
+		METHOD itemUsedOnLocation (Lnet/minecraft/advancements/critereon/LocationPredicate$Builder;Lnet/minecraft/advancements/critereon/ItemPredicate$Builder;)Lnet/minecraft/advancements/critereon/ItemUsedOnLocationTrigger$TriggerInstance;
+			ARG 0 location
+			ARG 1 tool
+		METHOD matches (Lnet/minecraft/world/level/storage/loot/LootContext;)Z
+			ARG 1 context
+		METHOD placedBlock (Lnet/minecraft/world/level/block/Block;)Lnet/minecraft/advancements/Criterion;
+			ARG 0 block
+		METHOD placedBlock ([Lnet/minecraft/world/level/storage/loot/predicates/LootItemCondition$Builder;)Lnet/minecraft/advancements/Criterion;
+			ARG 0 conditions

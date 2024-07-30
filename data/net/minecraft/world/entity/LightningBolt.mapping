@@ -1,0 +1,30 @@
+CLASS net/minecraft/world/entity/LightningBolt
+	METHOD addAdditionalSaveData (Lnet/minecraft/nbt/CompoundTag;)V
+		ARG 1 compound
+	METHOD clearCopperOnLightningStrike (Lnet/minecraft/world/level/Level;Lnet/minecraft/core/BlockPos;)V
+		ARG 0 level
+		ARG 1 pos
+	METHOD lambda$tick$1 (Lnet/minecraft/server/level/ServerPlayer;)Z
+		ARG 1 player
+	METHOD randomStepCleaningCopper (Lnet/minecraft/world/level/Level;Lnet/minecraft/core/BlockPos;)Ljava/util/Optional;
+		ARG 0 level
+		ARG 1 pos
+	METHOD randomWalkCleaningCopper (Lnet/minecraft/world/level/Level;Lnet/minecraft/core/BlockPos;Lnet/minecraft/core/BlockPos$MutableBlockPos;I)V
+		ARG 0 level
+		ARG 1 pos
+		ARG 2 mutable
+		ARG 3 steps
+	METHOD readAdditionalSaveData (Lnet/minecraft/nbt/CompoundTag;)V
+		COMMENT (abstract) Protected helper method to read subclass entity data from NBT.
+		ARG 1 compound
+	METHOD setCause (Lnet/minecraft/server/level/ServerPlayer;)V
+		ARG 1 cause
+	METHOD setVisualOnly (Z)V
+		ARG 1 visualOnly
+	METHOD shouldRenderAtSqrDistance (D)Z
+		COMMENT Checks if the entity is in range to render.
+		ARG 1 distance
+	METHOD spawnFire (I)V
+		ARG 1 extraIgnitions
+	METHOD tick ()V
+		COMMENT Called to update the entity's position/logic.

@@ -1,0 +1,9 @@
+CLASS net/minecraft/core/particles/DustColorTransitionOptions
+	METHOD <init> (Lorg/joml/Vector3f;Lorg/joml/Vector3f;F)V
+		ARG 1 color
+		ARG 2 toColor
+		ARG 3 scale
+	METHOD lambda$static$0 (Lnet/minecraft/core/particles/DustColorTransitionOptions;)Lorg/joml/Vector3f;
+		ARG 0 transitionOptions
+	METHOD lambda$static$1 (Lnet/minecraft/core/particles/DustColorTransitionOptions;)Lorg/joml/Vector3f;
+		ARG 0 transitionOptions

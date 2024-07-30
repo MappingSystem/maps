@@ -1,0 +1,31 @@
+CLASS net/minecraft/world/level/storage/loot/ValidationContext
+	COMMENT Context for validating loot tables. Loot tables are validated recursively by checking that all functions, conditions, etc. (implementing {@link LootContextUser}) are valid according to their LootTable's {@link LootContextParamSet}.
+	METHOD <init> (Lnet/minecraft/util/ProblemReporter;Lnet/minecraft/world/level/storage/loot/parameters/LootContextParamSet;)V
+		ARG 1 reporter
+		ARG 2 params
+	METHOD <init> (Lnet/minecraft/util/ProblemReporter;Lnet/minecraft/world/level/storage/loot/parameters/LootContextParamSet;Ljava/util/Optional;Ljava/util/Set;)V
+		ARG 1 reporter
+		ARG 2 params
+		ARG 3 resolver
+		ARG 4 visitedElements
+	METHOD <init> (Lnet/minecraft/util/ProblemReporter;Lnet/minecraft/world/level/storage/loot/parameters/LootContextParamSet;Lnet/minecraft/core/HolderGetter$Provider;)V
+		ARG 1 reporter
+		ARG 2 params
+		ARG 3 resolver
+	METHOD enterElement (Ljava/lang/String;Lnet/minecraft/resources/ResourceKey;)Lnet/minecraft/world/level/storage/loot/ValidationContext;
+		ARG 1 name
+		ARG 2 key
+	METHOD forChild (Ljava/lang/String;)Lnet/minecraft/world/level/storage/loot/ValidationContext;
+		COMMENT Create a new ValidationContext with {@code childName} being added to the context.
+		ARG 1 childName
+	METHOD hasVisitedElement (Lnet/minecraft/resources/ResourceKey;)Z
+		ARG 1 key
+	METHOD reportProblem (Ljava/lang/String;)V
+		COMMENT Report a problem to this ValidationContext.
+		ARG 1 problem
+	METHOD setParams (Lnet/minecraft/world/level/storage/loot/parameters/LootContextParamSet;)Lnet/minecraft/world/level/storage/loot/ValidationContext;
+		COMMENT Create a new ValidationContext with the given LootContextParamSet.
+		ARG 1 params
+	METHOD validateUser (Lnet/minecraft/world/level/storage/loot/LootContextUser;)V
+		COMMENT Validate the given LootContextUser.
+		ARG 1 lootContextUser

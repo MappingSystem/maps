@@ -1,0 +1,3 @@
+CLASS net/minecraft/client/renderer/entity/MobRenderer
+	METHOD shouldShowName (Lnet/minecraft/world/entity/Mob;)Z
+		ARG 1 entity

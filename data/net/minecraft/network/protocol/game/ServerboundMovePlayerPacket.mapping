@@ -1,0 +1,64 @@
+CLASS net/minecraft/network/protocol/game/ServerboundMovePlayerPacket
+	METHOD <init> (DDDFFZZZ)V
+		ARG 1 x
+		ARG 3 y
+		ARG 5 z
+		ARG 7 yRot
+		ARG 8 xRot
+		ARG 9 onGround
+		ARG 10 hasPos
+		ARG 11 hasRot
+	METHOD getX (D)D
+		ARG 1 defaultValue
+	METHOD getXRot (F)F
+		ARG 1 defaultValue
+	METHOD getY (D)D
+		ARG 1 defaultValue
+	METHOD getYRot (F)F
+		ARG 1 defaultValue
+	METHOD getZ (D)D
+		ARG 1 defaultValue
+	METHOD handle (Lnet/minecraft/network/protocol/game/ServerGamePacketListener;)V
+		COMMENT Passes this Packet on to the NetHandler for processing.
+		ARG 1 handler
+	CLASS Pos
+		METHOD <init> (DDDZ)V
+			ARG 1 x
+			ARG 3 y
+			ARG 5 z
+			ARG 7 onGround
+		METHOD read (Lnet/minecraft/network/FriendlyByteBuf;)Lnet/minecraft/network/protocol/game/ServerboundMovePlayerPacket$Pos;
+			ARG 0 buffer
+		METHOD write (Lnet/minecraft/network/FriendlyByteBuf;)V
+			COMMENT Writes the raw packet data to the data stream.
+			ARG 1 buffer
+	CLASS Rot
+		METHOD <init> (FFZ)V
+			ARG 1 yRot
+			ARG 2 xRot
+			ARG 3 onGround
+		METHOD read (Lnet/minecraft/network/FriendlyByteBuf;)Lnet/minecraft/network/protocol/game/ServerboundMovePlayerPacket$Rot;
+			ARG 0 buffer
+		METHOD write (Lnet/minecraft/network/FriendlyByteBuf;)V
+			COMMENT Writes the raw packet data to the data stream.
+			ARG 1 buffer
+	CLASS PosRot
+		METHOD <init> (DDDFFZ)V
+			ARG 1 x
+			ARG 3 y
+			ARG 5 z
+			ARG 7 yRot
+			ARG 8 xRot
+			ARG 9 onGround
+		METHOD read (Lnet/minecraft/network/FriendlyByteBuf;)Lnet/minecraft/network/protocol/game/ServerboundMovePlayerPacket$PosRot;
+			ARG 0 buffer
+		METHOD write (Lnet/minecraft/network/FriendlyByteBuf;)V
+			COMMENT Writes the raw packet data to the data stream.
+			ARG 1 buffer
+	CLASS StatusOnly
+		METHOD <init> (Z)V
+			ARG 1 onGround
+		METHOD read (Lnet/minecraft/network/FriendlyByteBuf;)Lnet/minecraft/network/protocol/game/ServerboundMovePlayerPacket$StatusOnly;
+			ARG 0 buffer
+		METHOD write (Lnet/minecraft/network/FriendlyByteBuf;)V
+			ARG 1 buffer

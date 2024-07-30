@@ -1,0 +1,12 @@
+CLASS net/minecraft/world/item/BundleItem
+	METHOD dropContents (Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/entity/player/Player;)Z
+		ARG 0 stack
+		ARG 1 player
+	METHOD getFullnessDisplay (Lnet/minecraft/world/item/ItemStack;)F
+		ARG 0 stack
+	METHOD playDropContentsSound (Lnet/minecraft/world/entity/Entity;)V
+		ARG 1 entity
+	METHOD playInsertSound (Lnet/minecraft/world/entity/Entity;)V
+		ARG 1 entity
+	METHOD playRemoveOneSound (Lnet/minecraft/world/entity/Entity;)V
+		ARG 1 entity
