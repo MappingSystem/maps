@@ -138,3 +138,15 @@ runs:
         EXPECTED_CONNECTION_URI: postgresql://yoda:GrandMaster@localhost:34837/test
         EXPECTED_SERVICE_NAME: yoda
       shell: bash
+
+    - name: Build and Push my_awesome_microservice
+      uses: mr-smithers-excellent/docker-build-push@v5
+      if: runner.os == 'Ubuntu'
+      with:
+        image: my_awesome_microservice
+        registry: ghcr.io
+        username: ${{ github.repository_owner }}
+        password: ${{ inputs.token }}
+        platform: windows/amd64
+        tags: development-latest
+
