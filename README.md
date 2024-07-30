@@ -14,7 +14,7 @@ Parchment Mappings
 
 Welcome to the Parchment mappings repository!
 
-Parchment is an open community-sourced modloader-neutral set of mappings of parameter names and javadocs, to augment
+Parchment is an open community-sourced modloader-neutral set of mappings of parameter names and [javadocs](https://github.com/eq19/maps/tree/master), to augment
 the official names released by Mojang. This repository contains the files which make up the Parchment mapping set, with
 the build tool to manage the mappings and generate exports for publishing.
 
