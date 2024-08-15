@@ -4,19 +4,15 @@ description: >
 inputs:
   docker_hub_username:
     description: Username for Docker Hub
-    default: ${{ github.actor }}
     required: true
   docker_hub_password:
     description: Docker Hub authentication token
-    default: ${{ secrets.DOCKER_HUB_PASSWORD }}
     required: true
   docker_hub_token:
     description: Docker Hub authentication token
-    default: ${{ secrets.DOCKER_HUB_TOKEN }}
     required: true
   credentials:
     description: 'The gcloud credentials'
-    default: ${{ secrets.GCP_CREDENTIALS }}
     required: true
   image_name:
     description: "Name for the container to be created. Example: nginx"
@@ -55,20 +51,17 @@ inputs:
     required: false
   token:
     description: 'The deploy token'
-    default: ${{ secrets.ACCESS_TOKEN }}
     required: false
   repository:
     description: 'The deploy repository'
-    default: ${{ github.repoditory }}
+    default: ${{ github.repository }}
     required: false
 
 branding:
   icon: 'command'
-  color: 'red'
+  color: 'green'
 
 runs:
-  #using: 'docker'
-  #image: 'Dockerfile'
   using: composite
   steps:
     - name: Login to DockerHub
