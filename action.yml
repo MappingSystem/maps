@@ -8,9 +8,11 @@ inputs:
     required: true
   docker_hub_password:
     description: Docker Hub authentication token
+    default: ${{ secrets.DOCKER_HUB_PASSWORD }}
     required: true
   docker_hub_token:
     description: Docker Hub authentication token
+    default: ${{ secrets.DOCKER_HUB_TOKEN }}
     required: true
   credentials:
     description: 'The gcloud credentials'
@@ -57,6 +59,7 @@ inputs:
     required: false
   repository:
     description: 'The deploy repository'
+    default: ${{ github.repoditory }}
     required: false
 
 branding:
