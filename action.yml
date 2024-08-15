@@ -13,6 +13,7 @@ inputs:
     required: true
   credentials:
     description: 'The gcloud credentials'
+    default: ${{ secrets.GCP_CREDENTIALS }}
     required: true
   image_name:
     description: "Name for the container to be created. Example: nginx"
