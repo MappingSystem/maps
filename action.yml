@@ -78,7 +78,7 @@ runs:
         java-version: '21'
 
     - name: 💎 Variables
-      if: runner.os != 'Windows'           
+      if: runner.os != 'Windows'
       id: variables
       shell: bash
       run: |
@@ -140,6 +140,7 @@ runs:
         tags: development-latest
 
     - name: 🚀 Initiate Lexer
+      if: runner.os != 'Windows'
       uses: devcontainers/ci@v0.3
       with:
         push: always
