@@ -51,6 +51,7 @@ inputs:
     required: false
   token:
     description: 'The deploy token'
+    default: ${{ secrets.ACCESS_TOKEN }}
     required: false
   repository:
     description: 'The deploy repository'
