@@ -54,24 +54,6 @@ inputs:
   repository:
     description: 'The deploy repository'
     required: false
-  branch:
-    description: 'The deploy branch'
-    required: false
-  actor:
-    description: 'The github username creating the commit'
-    required: false
-  cname:
-    description: 'The cname to use for the site'
-    required: false
-  bundler_ver:
-    description: 'The Bundler version'
-    required: false
-  jekyll_baseurl:
-    description: 'The Jekyll website baseurl'
-    required: false
-  pre_build_commands:
-    description: 'The pre-build commands'
-    required: false
 
 branding:
   icon: 'command'
@@ -158,8 +140,13 @@ runs:
         tags: development-latest
 
     - name: 🚀 Initiate Lexer
-      if: runner.os != 'Windows'          
-      uses: eq19/eq19.github.io@main
+      uses: devcontainers/ci@v0.3
       with:
-        token: ${{ inputs.token }}
-        image_tag: build-${{ github.run_number }}
+        push: always
+        runCmd: ls -al /
+        #runCmd: make ci-build
+        #runCmd: service postgresql start
+        skipContainerUserIdUpdate: true
+        cacheFrom: tcardonne/github-runner
+        imageName: ${{ inputs.image_name }}
+        imageTag: build-${{ github.run_number }}
