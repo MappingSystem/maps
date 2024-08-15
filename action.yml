@@ -1,6 +1,6 @@
-name: 'Jekyll Deploy Action'
+name: 'Docker Deploy Action'
 description: >
-  🪂  A Github Action to deploy the Jekyll site conveniently for GitHub Pages
+  🪂  A Github Action to deploy pages conveniently
 inputs:
   docker_hub_username:
     description: Username for Docker Hub
