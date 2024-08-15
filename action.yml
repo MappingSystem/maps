@@ -60,7 +60,7 @@ inputs:
 
 branding:
   icon: 'command'
-  color: 'green'
+  color: 'yellow'
 
 runs:
   using: composite
